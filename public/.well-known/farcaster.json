@@ -1,0 +1,18 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjg2OTAxNCwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDdjMzgxZmM5MjA2NTRiM2M2MDUyYjM0MTY0YjA3Zjc5MGUwYmY0NGEifQ",
+    "payload": "eyJkb21haW4iOiJvYXN5c3BhcmsuaHViIn0",
+    "signature": "MHhkMjhmZDE5YzQ0ZTYwMzU2ZGE0ZjkzYWY2YjcwNTJmY2QxZGNhZTFjNzI0Y2U0YmZlZmMxM2I4YTlmZThhN2EwM2M0N2U4YTI2N2Y5Y2QxMjU5MjI5M2M5YmU3YjMyMjE1ZGFkZGVjYjEzNjU1NjQ1ZThmMDM3MDdlNTg3MWI"
+  },
+  "frame": {
+    "version": "1",
+    "name": "OasysPark Hub",
+    "iconUrl": "https://picsum.photos/256/256?random=100",
+    "homeUrl": "https://oasyspark.hub",
+    "imageUrl": "https://picsum.photos/1024/512?random=101",
+    "buttonTitle": "Launch App",
+    "splashImageUrl": "https://picsum.photos/256/256?random=100",
+    "splashBackgroundColor": "#0f172a",
+    "webhookUrl": "https://oasyspark.hub/api/webhook"
+  }
+}

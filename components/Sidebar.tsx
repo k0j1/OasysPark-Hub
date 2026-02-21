@@ -76,7 +76,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onViewChange, isO
           <div className="bg-slate-800/50 rounded-lg p-4 text-xs text-slate-400">
             <div className="flex justify-between items-center mb-1">
               <p className="font-mono">NETWORK STATUS</p>
-              <span className="font-mono text-[10px] text-slate-500">v0.0.3</span>
+              <span className="font-mono text-[10px] text-slate-500">v0.0.4</span>
             </div>
             <div className="flex items-center space-x-2">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode, useCallback } from 'react';
+import sdk from '@farcaster/frame-sdk';
 import { WalletState, WalletConnectionMethod } from '../types';
 import { fetchOasysAssets } from './explorerService';
 
@@ -76,25 +77,41 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   }, [loadAssets]);
 
   const connectFarcaster = useCallback(async () => {
-    // Simulation of Farcaster Auth
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    const mockAddress = '0xcd3b766ccdd6ae721141f452c550ca635964ce71'; // Demo Address (Oasys Foundation related or generic active address for demo)
-    
-    setState(prev => ({
-      ...prev,
-      address: mockAddress,
-      isConnected: true,
-      chainId: 248,
-      connectionMethod: WalletConnectionMethod.FARCASTER,
-      farcasterUser: {
-        fid: 12345,
-        username: 'oasys_fan',
-        displayName: 'Oasys Gamer',
+    try {
+      let fid = 12345;
+      let username = 'oasys_fan';
+      let displayName = 'Oasys Gamer';
+      
+      // Try to get real Farcaster context
+      const context = await sdk.context;
+      if (context && context.user) {
+        fid = context.user.fid;
+        username = context.user.username || username;
+        displayName = context.user.displayName || displayName;
+      } else {
+        // Simulation delay if not in frame
+        await new Promise(resolve => setTimeout(resolve, 1500));
       }
-    }));
+      
+      const mockAddress = '0xcd3b766ccdd6ae721141f452c550ca635964ce71'; // Demo Address
+      
+      setState(prev => ({
+        ...prev,
+        address: mockAddress,
+        isConnected: true,
+        chainId: 248,
+        connectionMethod: WalletConnectionMethod.FARCASTER,
+        farcasterUser: {
+          fid,
+          username,
+          displayName,
+        }
+      }));
 
-    await loadAssets(mockAddress);
+      await loadAssets(mockAddress);
+    } catch (error) {
+      console.error("Farcaster connection failed", error);
+    }
   }, [loadAssets]);
 
   const connectManual = useCallback(async (inputAddress: string) => {
