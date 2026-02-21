@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { TrendingUp, Gamepad2, Coins, ArrowRight } from 'lucide-react';
+import { TrendingUp, Gamepad2, Coins } from 'lucide-react';
 import { Card } from './ui/Card';
 import { Button } from './ui/Button';
 import { ViewState } from '../types';
@@ -52,15 +52,12 @@ export const Dashboard: React.FC<DashboardProps> = ({ onViewChange }) => {
              <Button onClick={() => onViewChange(ViewState.GAMES)} variant="primary">
                ゲームを探す
              </Button>
-             <Button onClick={() => onViewChange(ViewState.AI_ASSISTANT)} variant="secondary">
-               AIに聞く
-             </Button>
           </div>
         </div>
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card>
           <div className="flex items-start justify-between">
             <div>
@@ -110,20 +107,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ onViewChange }) => {
               </div>
             ))}
           </div>
-        </Card>
-
-        <Card className="bg-gradient-to-br from-slate-900 to-indigo-950/30">
-           <div className="flex flex-col h-full justify-between">
-             <div>
-                <h3 className="text-lg font-semibold text-white mb-2">Oasys Concierge</h3>
-                <p className="text-slate-400 text-sm mb-4">
-                  新しいゲームをお探しですか？AIコンシェルジュがあなたの好みに合ったゲームを提案します。
-                </p>
-             </div>
-             <Button onClick={() => onViewChange(ViewState.AI_ASSISTANT)} variant="outline" size="sm" className="w-full justify-between">
-               チャットを始める <ArrowRight size={16} />
-             </Button>
-           </div>
         </Card>
       </div>
 

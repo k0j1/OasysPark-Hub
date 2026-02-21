@@ -4,7 +4,6 @@ export enum ViewState {
   DASHBOARD = 'DASHBOARD',
   GAMES = 'GAMES',
   ASSETS = 'ASSETS',
-  AI_ASSISTANT = 'AI_ASSISTANT',
 }
 
 export enum ChainType {

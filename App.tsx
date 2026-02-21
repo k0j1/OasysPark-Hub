@@ -5,7 +5,6 @@ import { Header } from './components/Header';
 import { Dashboard } from './components/Dashboard';
 import { GameDirectory } from './components/GameDirectory';
 import { AssetViewer } from './components/AssetViewer';
-import { AiConcierge } from './components/AiConcierge';
 import { WalletConnectModal } from './components/WalletConnectModal';
 import { WalletProvider, useWallet } from './services/walletContext';
 import { ViewState } from './types';
@@ -28,8 +27,6 @@ const AppContent: React.FC = () => {
         return <GameDirectory />;
       case ViewState.ASSETS:
         return <AssetViewer />;
-      case ViewState.AI_ASSISTANT:
-        return <AiConcierge />;
       default:
         return <Dashboard onViewChange={setCurrentView} />;
     }
@@ -58,15 +55,6 @@ const AppContent: React.FC = () => {
             {renderView()}
           </div>
         </main>
-
-        {/* Floating AI Button (Mobile Friendly) */}
-        <button
-          onClick={() => setCurrentView(ViewState.AI_ASSISTANT)}
-          className="md:hidden fixed bottom-6 right-6 bg-oasys-secondary hover:bg-fuchsia-400 text-white p-4 rounded-full shadow-lg shadow-fuchsia-900/50 transition-all z-50 flex items-center justify-center"
-          aria-label="AI Assistant"
-        >
-           <span className="text-2xl">✨</span>
-        </button>
       </div>
 
       {/* Wallet Connection Modal */}

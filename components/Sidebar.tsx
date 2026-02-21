@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutDashboard, Gamepad2, Coins, MessageSquareText, X, Zap } from 'lucide-react';
+import { LayoutDashboard, Gamepad2, Coins, X, Zap } from 'lucide-react';
 import { ViewState } from '../types';
 
 interface SidebarProps {
@@ -14,7 +14,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onViewChange, isO
     { id: ViewState.DASHBOARD, label: 'ダッシュボード', icon: LayoutDashboard },
     { id: ViewState.GAMES, label: 'ゲーム一覧', icon: Gamepad2 },
     { id: ViewState.ASSETS, label: '資産管理 (Tokens/NFT)', icon: Coins },
-    { id: ViewState.AI_ASSISTANT, label: 'AIコンシェルジュ', icon: MessageSquareText },
   ];
 
   return (
@@ -77,7 +76,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onViewChange, isO
           <div className="bg-slate-800/50 rounded-lg p-4 text-xs text-slate-400">
             <div className="flex justify-between items-center mb-1">
               <p className="font-mono">NETWORK STATUS</p>
-              <span className="font-mono text-[10px] text-slate-500">v0.0.2</span>
+              <span className="font-mono text-[10px] text-slate-500">v0.0.3</span>
             </div>
             <div className="flex items-center space-x-2">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
