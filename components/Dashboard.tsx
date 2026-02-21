@@ -126,7 +126,13 @@ export const Dashboard: React.FC<DashboardProps> = ({ onViewChange }) => {
             <div 
               key={game.id} 
               className="group relative h-48 rounded-xl overflow-hidden cursor-pointer border border-slate-800 hover:border-cyan-500/50 transition-all"
-              onClick={() => onViewChange(ViewState.GAMES)}
+              onClick={() => {
+                if (game.link) {
+                  window.open(game.link, '_blank');
+                } else {
+                  onViewChange(ViewState.GAMES);
+                }
+              }}
             >
               <img src={game.imageUrl} alt={game.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent p-4 flex flex-col justify-end">

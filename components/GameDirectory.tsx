@@ -90,7 +90,12 @@ export const GameDirectory: React.FC = () => {
                   ))}
                 </div>
 
-                <Button variant="outline" size="sm" className="w-full group-hover:border-cyan-500 group-hover:text-cyan-400 transition-colors">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full group-hover:border-cyan-500 group-hover:text-cyan-400 transition-colors"
+                  onClick={() => game.link && window.open(game.link, '_blank')}
+                >
                   Play Now <ExternalLink size={14} className="ml-2" />
                 </Button>
               </div>

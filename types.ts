@@ -20,6 +20,7 @@ export interface Game {
   category: string;
   chain: ChainType;
   imageUrl: string;
+  link?: string;
   tags: string[];
   isHot?: boolean;
 }
